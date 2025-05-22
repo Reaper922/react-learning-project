@@ -4,10 +4,12 @@ type NavigationLink = {
   icon: string;
 };
 
+// Typ für die Component Properties, die in die Component reingereicht werden sollen
 type ListItemProps = {
   navlink: NavigationLink;
 };
 
+// Über destructuring wird das navlink Object aus den Properties geholt
 function ListItem({ navlink }: ListItemProps) {
   return (
     <li>
