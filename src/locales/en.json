@@ -1,0 +1,27 @@
+{
+    "navbar": {
+        "menu": "MENU",
+        "location": "LOCATION",
+        "about": "ABOUT"
+    },
+    "intro": {
+        "text": "THE BEST RAMEN IN TOWN"
+    },
+    "how_to_order": {
+        "headline": "HOW TO ORDER",
+        "pick": "Pick",
+        "your_noodle": "Your Noodle",
+        "your_broth": "Your Broth",
+        "Add": "Add",
+        "your_toppings": "Your Toppings"
+    },
+    "our_menu": {
+        "headline": "OUR MENU",
+        "chicken": "CHICKEN",
+        "beef": "BEEF",
+        "shrimp": "SHRIMP"
+    },
+    "locator": {
+        "headline": "FIND US AT"
+    }
+}

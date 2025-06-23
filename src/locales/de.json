@@ -1,0 +1,27 @@
+{
+    "navbar": {
+        "menu": "MENÜ",
+        "location": "STANDORT",
+        "about": "ÜBER UNS"
+    },
+    "intro": {
+        "text": "DAS BESTE RAMEN DER STADT"
+    },
+    "how_to_order": {
+        "headline": "WIE MAN BESTELLT",
+        "pick": "Wähle",
+        "your_noodle": "deine Nudeln",
+        "your_broth": "deine Brühe",
+        "Add": "Wähle",
+        "your_toppings": "deine Extras"
+    },
+    "our_menu": {
+        "headline": "UNSER ANGEBOT",
+        "chicken": "HÜHNCHEN",
+        "beef": "RIND",
+        "shrimp": "SCHRIMPS"
+    },
+    "locator": {
+        "headline": "HIER FINDEN SIE UNS"
+    }
+}
