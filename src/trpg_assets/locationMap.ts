@@ -1,16 +1,23 @@
+import type {GameState} from "../trpg_components/GameContext";
 import {imageMap} from "./imageMap";
 
 export type GameActions = {
   setLocation: (loc: string) => void;
   buyWeapon: () => void;
   buyXP: () => void;
+  shootArrow: () => void;
+  attackMonster: () => void;
+  withdraw: () => void;
 };
 
 export type LocationEntry = {
   name: string;
   text: string;
   imageKey?: keyof typeof imageMap;
-  getButtons: (actions: GameActions) => {
+  getButtons: (
+    actions: GameActions,
+    state: GameState
+  ) => {
     label: string;
     action: () => void;
   }[];
@@ -187,6 +194,64 @@ export const locationMap: Record<string, LocationEntry> = {
         action: () => actions.setLocation("market"),
       },
     ],
+  },
+  wolf: {
+    name: "Wolf",
+    text: "Du bist der Spur des Wolfes tiefer in den Wald gefolgt, als du plötzlich hinter dir ein leises, aber durchdringendes Knurren vernehmen kannst. Langsam drehst du dich um und du kannst in ca 100 Meter Entfernung einen Wolf erblicken. Es stellt sich die Frage, bist du Jäger oder Gejagter?",
+    imageKey: "wolf",
+    getButtons: (actions, state) => {
+      // Fernkampf möglich?
+      if (state.hasBow && state.arrows > 0 && !state.lastShot) {
+        return [
+          {
+            label: "Pfeil schießen",
+            action: actions.shootArrow,
+          },
+          {
+            label: "Nahkampf",
+            action: actions.attackMonster,
+          },
+          {
+            label: "Zurückziehen",
+            action: actions.withdraw,
+          },
+        ];
+      }
+
+      // Nach Fehlschuss
+      if (state.lastShot) {
+        return [
+          {
+            label: "Nahkampf",
+            action: actions.attackMonster,
+          },
+          {
+            label: "Zurückziehen",
+            action: actions.withdraw,
+          },
+          {
+            label: "Ausweichen", // z. B. aus deinem alten Spiel, oder du kannst was anderes nehmen
+            action: () => actions.setLocation("start"), // oder deine Flucht-Logik
+          },
+        ];
+      }
+
+      // Standard: Nahkampf + Ausweichen
+      return [
+        {
+          label: "Angreifen",
+          action: actions.attackMonster,
+        },
+        {
+          label: "Ausweichen",
+          action: actions.withdraw, // Oder eine eigene Ausweichen-Logik falls vorhanden
+        },
+        {
+          label: "Zurückziehen",
+          action: actions.withdraw,
+        },
+      ];
+    },
   },
   xxx: {
     name: "xxx",

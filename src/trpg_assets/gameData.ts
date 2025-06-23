@@ -5,10 +5,9 @@ export const weapons = [
   {name: "Schwert", power: 100},
 ];
 
-export const monsters = [
-  {name: "Froschkönig", level: 5, health: 120},
-  {name: "Bestienkönig", level: 15, health: 700},
-  {name: "Drache", level: 50, health: 4200},
-  {name: "Wolf", level: 1, health: 15},
-  {name: "Wildschweineber", level: 2, health: 30},
-];
+export const monsters = {
+  wolf: {name: "Wolf", level: 1, health: 15},
+  boar: {name: "Wildschweineber", level: 2, health: 30},
+  beastKing: {name: "Bestienkönig", level: 15, health: 700},
+  dragon: {name: "Drache", level: 50, health: 4200},
+};
